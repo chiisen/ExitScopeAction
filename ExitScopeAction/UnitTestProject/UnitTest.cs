@@ -27,6 +27,17 @@ namespace UnitTestProject
 
                 Thread.Sleep(2000);
             }
+
+            void exitAction_()
+            {
+                MSTestLog.WriteLine("°õ¦æ§¹²¦¡I");
+            }
+
+            using (var tms = new ExitScopeAction(exitAction_, "exit action"))
+            {
+
+                Thread.Sleep(2000);
+            }
         }
     }
 }
