@@ -1,7 +1,5 @@
-using ExitScope;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSTestTool;
-using System.Threading;
 
 namespace UnitTestProject
 {
@@ -17,27 +15,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod()
         {
-            void exitCall_(long t, string x)
-            {
-                MSTestLog.WriteLine($"{x} 執行 {t} ms");
-            }
-
-            using (var tms = new TimeMeasureScope(exitCall_, "for loop"))
-            {
-
-                Thread.Sleep(2000);
-            }
-
-            void exitAction_()
-            {
-                MSTestLog.WriteLine("執行完畢！");
-            }
-
-            using (var tms = new ExitScopeAction(exitAction_, "exit action"))
-            {
-
-                Thread.Sleep(2000);
-            }
+            MSTestLog.WriteLine("單元測試");
         }
     }
 }
