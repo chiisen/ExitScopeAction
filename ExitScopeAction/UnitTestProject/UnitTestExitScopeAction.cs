@@ -33,7 +33,7 @@ namespace UnitTestProject
 
         public class ESA : ExitScopeAction
         {
-            public ESA(Action action, string title) : base
+            public ESA(string title, Action action = null) : base
                 (title,
                 () =>
                 {
@@ -47,7 +47,7 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMethod2()
         {
-            using (var tms = new ESA(null, "離開 Scope 2 執行"))
+            using (var tms = new ESA("離開 Scope 2 執行"))
             {
                 Thread.Sleep(2000);
             }
