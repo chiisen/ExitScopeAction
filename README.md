@@ -82,7 +82,7 @@ using (var tms = new ExitScopeAction("離開 Scope 執行", exitCallback_))
 ``` c#
 public class ESA : ExitScopeAction
 {
-    public ESA(Action action, string title) : base
+    public ESA(string title, Action action = null) : base
         (title,
         () =>
         {
@@ -94,7 +94,7 @@ public class ESA : ExitScopeAction
 ```
 使用特化類別
 ``` c#
-using (var tms = new ESA(null, "離開 Scope 2 執行"))
+using (var tms = new ESA("離開 Scope 2 執行"))
 {
     Thread.Sleep(2000);
 }
